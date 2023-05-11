@@ -32,17 +32,22 @@
 
   </body>
   <dialog id="passwordOptions">
+    <div id="password-box">
     <form id="passwordOptionsForm">
       <input type="range" value="8" min="8" max="128" step="8" class="slider" id="passwordLengthSlider">
       <p>Password Length: <span id="passwordLengthCaption">8</span></p>
-      <input type="checkbox" id="useChars" name="useChars"checked>
+      <input type="checkbox" id="useChars" name="useChars">
       <label for="useChars"> use special characters</label><br>
-      <input type="checkbox" id="useCaps" name="useCaps"checked>
+      <input type="checkbox" id="useCaps" name="useCaps">
       <label for="vehicle2"> use capital letters </label><br>
-      <input type="checkbox" id="useNums" name="useNums" checked>
+      <input type="checkbox" id="useNums" name="useNums">
       <label for="useNums"> use numbers</label><br>
     </form>
     <button id="passwordOptionsGo" class="btn">Go</button>
+    </div>
+    <div id="progress-bar-holder"  class="w3-light-grey" height="100%">
+      <div id="progressBar" class="w3-grey" style="height:24px; width:5%"></div>
+    </div>
   </dialog>
   <script src="script.js"></script>
 </html>

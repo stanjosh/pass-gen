@@ -3,8 +3,8 @@ var passwordOptions = document.getElementById('passwordOptions');
 var passwordOptionsGo = document.getElementById('passwordOptionsGo');
 var passwordLength = document.getElementById('passwordLengthCaption')
 var slider = document.getElementById("passwordLengthSlider");
-
-
+var passwordOptionsForm = document.getElementById('passwordOptionsForm')
+var passwordSafetyBar = document.getElementById('progressBar')
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
@@ -47,9 +47,23 @@ function writePassword() {
 
 }
 
+function updateSafetyBar() {
+  let safetyBarMultiplier = 1
+  let useChars = document.getElementById('useChars')
+  let useCaps = document.getElementById('useCaps')
+  let useNums = document.getElementById('useNums')
+  if (useChars.checked) {safetyBarMultiplier *= 2}
+  if (useCaps.checked) {safetyBarMultiplier *= 2}
+  if (useNums.checked) {safetyBarMultiplier *= 2}
+  let safetyBarValue = (slider.value * 3) * safetyBarMultiplier / 30.72
+  passwordSafetyBar.style.width = safetyBarValue  + "%"
+  console.log(safetyBarValue)
+
+}
+
 
 // Add event listener to generate button
-
+passwordOptionsForm.addEventListener('change', updateSafetyBar);
 slider.oninput = function() {passwordLength.innerHTML = this.value};
 generateBtn.addEventListener("click", (event) => {
   passwordOptions.showModal();})
